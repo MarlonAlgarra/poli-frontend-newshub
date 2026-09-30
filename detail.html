@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NewsHub — Detalle de la noticia</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">NewsHub</a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="catalogo.html" class="nav-link active">Noticias</a>
+        <a href="#" class="nav-link">Mundo</a>
+        <a href="#" class="nav-link">Tecnología</a>
+        <a href="contacto.html" class="nav-link">Contacto</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14"/></svg>
+        </button>
+        <button class="profile-btn">
+          <span class="avatar"></span>
+          <span>Perfil</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container detail-layout">
+
+    <!-- ===================== ARTÍCULO ===================== -->
+    <article class="article" id="article">
+      <!-- Estado de carga / no encontrado -->
+      <div class="article-notfound" id="articleNotFound" style="display:none;">
+        <h1>Noticia no encontrada</h1>
+        <p>La noticia que buscas no existe o el enlace no es válido.</p>
+        <a class="btn btn-dark" href="catalogo.html">Volver al catálogo</a>
+      </div>
+
+      <div class="article-content" id="articleContent">
+        <!-- Cabecera -->
+        <div class="article-meta">
+          <span class="article-cat" id="artCat"></span>
+          <span class="article-sep">|</span>
+          <span class="article-date" id="artDate"></span>
+        </div>
+
+        <h1 class="article-title" id="artTitle"></h1>
+
+        <div class="article-byline">
+          <div class="byline-author">
+            <span class="byline-avatar"></span>
+            <div>
+              <div class="byline-name" id="artAuthor"></div>
+              <div class="byline-role" id="artAuthorRole"></div>
+            </div>
+          </div>
+          <div class="byline-read">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8m.5-13H11v6l5.2 3.15.8-1.3-4.5-2.7z"/></svg>
+            <span id="artReadTime"></span>
+          </div>
+        </div>
+
+        <!-- Imagen principal -->
+        <figure class="article-figure">
+          <div class="article-hero-img" id="artHeroImg">
+            <span class="article-img-fallback">
+              <svg viewBox="0 0 24 24" width="46" height="46"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3.01L14.5 12l4.5 6H5z"/></svg>
+              <small id="artImgAlt">Imagen principal del artículo</small>
+            </span>
+          </div>
+          <figcaption class="article-caption" id="artCaption"></figcaption>
+        </figure>
+
+        <!-- Barra de acciones -->
+        <div class="article-actions">
+          <div class="action-buttons">
+            <button class="btn btn-outline" id="favBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 17.3 6.2 21l1.6-6.8L2.5 9.6l6.9-.6L12 2.6l2.6 6.4 6.9.6-5.3 4.6 1.6 6.8z"/></svg>
+              <span>Añadir a Favoritos</span>
+            </button>
+            <button class="btn btn-dark" id="contactBtn">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              <span>Contactar Editor</span>
+            </button>
+          </div>
+          <div class="share-group">
+            <span class="share-label">Compartir:</span>
+            <button class="icon-btn share-btn" aria-label="Compartir enlace de ayuda"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m1 17h-2v-2h2zm1.07-7.75-.9.92A3.4 3.4 0 0 0 12 14h-2v-.5a4 4 0 0 1 1.17-2.83l1.24-1.26A2 2 0 1 0 8.7 8.5H6.7a4 4 0 1 1 7.37 2.75"/></svg></button>
+            <button class="icon-btn share-btn" aria-label="Compartir en Facebook"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M13 22v-9h3l.5-3.5H13V7.3c0-1 .27-1.7 1.7-1.7H16.6V2.4A24 24 0 0 0 14.3 2.3c-2.4 0-4 1.45-4 4.1v2.6H7v3.5h3.3V22z"/></svg></button>
+            <button class="icon-btn share-btn" id="copyLinkBtn" aria-label="Copiar enlace"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7h-4a5 5 0 0 0 0 10h4v-1.9h-4A3.1 3.1 0 0 1 3.9 12M8 13h8v-2H8zm9-6h-4v1.9h4a3.1 3.1 0 0 1 0 6.2h-4V17h4a5 5 0 0 0 0-10"/></svg></button>
+          </div>
+        </div>
+
+        <!-- Cuerpo del artículo -->
+        <div class="article-body" id="artBody"></div>
+      </div>
+
+      <!-- Comentarios -->
+      <section class="comments" id="commentsSection">
+        <div class="comments-head">
+          <h2 class="comments-title">Comentarios (24)</h2>
+          <a href="#" class="comments-rules">Ver normas de la comunidad</a>
+        </div>
+        <form class="comment-form" id="commentForm">
+          <span class="comment-avatar"></span>
+          <div class="comment-field">
+            <textarea id="commentInput" placeholder="Escribe tu opinión sobre este artículo..." aria-label="Escribe tu comentario"></textarea>
+            <div class="comment-foot">
+              <button type="submit" class="btn btn-dark">Publicar</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </article>
+
+    <!-- ===================== SIDEBAR ===================== -->
+    <aside class="detail-sidebar">
+      <div class="related">
+        <h3 class="side-title related-title">Artículos relacionados</h3>
+        <ul class="related-list" id="relatedList"></ul>
+      </div>
+
+      <div class="newsletter">
+        <h3>Mantente informado</h3>
+        <p>Recibe lo mejor de NewsHub directamente en tu correo cada mañana.</p>
+        <form id="newsletterForm">
+          <input type="email" id="nlEmail" placeholder="tu@email.com" aria-label="Correo electrónico" />
+          <button type="submit" class="btn btn-light block">Suscribirse</button>
+        </form>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">NewsHub</a>
+        <p>Tu fuente diaria de periodismo independiente, análisis profundo e historias globales que importan.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <a href="#">Sobre nosotros</a>
+        <a href="#">Archivo de noticias</a>
+        <a href="#">Columnistas</a>
+        <a href="#">Suscripciones</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Soporte</h4>
+        <a href="#">Centro de ayuda</a>
+        <a href="#">Privacidad</a>
+        <a href="#">Términos legales</a>
+        <a href="#">Contacto</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Social</h4>
+        <div class="social">
+          <a href="#" aria-label="Ayuda"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m1 17h-2v-2h2zm1.07-7.75-.9.92A3.4 3.4 0 0 0 12 14h-2v-.5a4 4 0 0 1 1.17-2.83l1.24-1.26A2 2 0 1 0 8.7 8.5H6.7a4 4 0 1 1 7.37 2.75"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M13 22v-9h3l.5-3.5H13V7.3c0-1 .27-1.7 1.7-1.7H16.6V2.4A24 24 0 0 0 14.3 2.3c-2.4 0-4 1.45-4 4.1v2.6H7v3.5h3.3V22z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9s.68.82.9 1.38c.16.42.36 1.06.4 2.23.07 1.26.08 1.64.08 4.84s-.01 3.58-.08 4.84c-.04 1.17-.24 1.8-.4 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.4-1.25.07-1.63.08-4.85.08s-3.6-.01-4.85-.08c-1.17-.04-1.8-.24-2.23-.4a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.4-2.23C2.21 15.6 2.2 15.2 2.2 12s.01-3.58.08-4.84c.04-1.17.24-1.81.4-2.23.22-.56.48-.96.9-1.38s.82-.68 1.38-.9c.42-.16 1.06-.36 2.23-.41C8.44 2.21 8.82 2.2 12 2.2m0 3.05A6.75 6.75 0 1 0 18.75 12 6.75 6.75 0 0 0 12 5.25m0 11.13A4.38 4.38 0 1 1 16.38 12 4.38 4.38 0 0 1 12 16.38m6.99-11.4a1.58 1.58 0 1 0 1.58 1.57 1.58 1.58 0 0 0-1.58-1.57"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <span>© 2026 NewsHub. Todos los derechos reservados.</span>
+      <div class="footer-contact">
+        <span>contacto@newshub.com</span>
+        <span>+34 900 000 000</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="catalogo.js"></script>
+  <script src="script.js"></script>
+  <script src="detail.js"></script>
+</body>
+</html>
