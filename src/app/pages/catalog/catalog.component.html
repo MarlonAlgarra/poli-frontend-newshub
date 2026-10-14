@@ -1,0 +1,89 @@
+<app-header variant="inner" active="noticias" (searchToggle)="focusSearch()"></app-header>
+
+<main class="container catalog-main">
+
+  <!-- ===================== TÍTULO ===================== -->
+  <section class="catalog-head">
+    <h1 class="catalog-title">Catálogo de Noticias</h1>
+    <p class="catalog-subtitle">Explora nuestro archivo completo de historias y reportajes.</p>
+  </section>
+
+  <!-- ===================== FILTROS ===================== -->
+  <section class="catalog-filters">
+    <div class="filter-selects">
+      <div class="select-wrap">
+        <select id="categoryFilter" aria-label="Filtrar por categoría" [(ngModel)]="category">
+          <option value="">Todas las categorías</option>
+          <option value="Tecnología">Tecnología</option>
+          <option value="Economía">Economía</option>
+          <option value="Educación">Educación</option>
+          <option value="Viajes">Viajes</option>
+          <option value="Negocios">Negocios</option>
+          <option value="Diseño">Diseño</option>
+        </select>
+        <span class="select-chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+        </span>
+      </div>
+
+      <div class="select-wrap">
+        <select id="sortFilter" aria-label="Ordenar noticias" [(ngModel)]="sort">
+          <option value="recent">Más recientes</option>
+          <option value="old">Más antiguas</option>
+        </select>
+        <span class="select-chevron" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="search-box catalog-search">
+      <span class="search-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14"/></svg>
+      </span>
+      <input #catalogSearch type="text" id="catalogSearch" placeholder="Buscar en el archivo..." aria-label="Buscar en el archivo" [(ngModel)]="query" />
+    </div>
+  </section>
+
+  <!-- ===================== GRID DE NOTICIAS ===================== -->
+  <section class="catalog-grid" id="catalogGrid">
+    @for (n of filtered; track n.slug) {
+      <article class="cat-card">
+        <div class="cat-card-img" [style.background-image]="'url(' + n.image + ')'" style="background-size:cover; background-position:center;">
+          <button class="icon-btn cat-bookmark" [class.saved]="saved.has(n.slug)" aria-label="Guardar" (click)="toggleBookmark(n)">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2"/></svg>
+          </button>
+          <span class="cat-img-fallback">
+            <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3.01L14.5 12l4.5 6H5z"/></svg><small>Imagen del artículo</small>
+          </span>
+        </div>
+        <div class="cat-card-body">
+          <span class="cat-card-date">{{ n.date }}</span>
+          <h3 class="cat-card-title"><a [routerLink]="['/detail']" [queryParams]="{ slug: n.slug }">{{ n.title }}</a></h3>
+          <p class="cat-card-desc">{{ n.description }}</p>
+          <a class="btn btn-dark block cat-more" [routerLink]="['/detail']" [queryParams]="{ slug: n.slug }">Ver más</a>
+        </div>
+      </article>
+    }
+  </section>
+
+  @if (!filtered.length) {
+    <p class="catalog-empty" id="catalogEmpty">No se encontraron noticias que coincidan con tu búsqueda.</p>
+  }
+
+  <!-- ===================== PAGINACIÓN ===================== -->
+  <nav class="pagination" id="pagination" aria-label="Paginación">
+    <button class="page-btn page-arrow" data-dir="prev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M15.4 7.4 14 6l-6 6 6 6 1.4-1.4L10.8 12z"/></svg>
+    </button>
+    @for (p of pages; track p) {
+      <button class="page-btn page-num" [class.active]="p === activePage" [attr.data-page]="p" (click)="selectPage(p)">{{ p }}</button>
+    }
+    <button class="page-btn page-arrow" data-dir="next" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8.6 7.4 10 6l6 6-6 6-1.4-1.4L13.2 12z"/></svg>
+    </button>
+  </nav>
+
+</main>
+
+<app-footer variant="inner"></app-footer>

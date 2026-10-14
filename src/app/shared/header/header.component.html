@@ -1,0 +1,45 @@
+<header class="site-header">
+  <div class="container header-inner">
+    <a routerLink="/" class="logo">NewsHub</a>
+
+    <nav class="main-nav">
+      <a routerLink="/" class="nav-link" [class.active]="active === 'inicio'">Inicio</a>
+      <a routerLink="/catalogo" class="nav-link" [class.active]="active === 'noticias'">Noticias</a>
+      <a href="#" class="nav-link">Mundo</a>
+      <a href="#" class="nav-link">Tecnología</a>
+      @if (showCultura) {
+        <a href="#" class="nav-link">Cultura</a>
+      }
+      <a routerLink="/contacto" class="nav-link" [class.active]="active === 'contacto'">Contacto</a>
+    </nav>
+
+    @if (variant === 'home') {
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14"/></svg>
+        </span>
+        <input type="text" id="searchInput" placeholder="Buscar noticias..." aria-label="Buscar noticias"
+               [ngModel]="search" (ngModelChange)="onSearchInput($event)" />
+      </div>
+    }
+
+    <div class="header-actions">
+      @if (variant === 'home') {
+        <button class="icon-btn" id="notifBtn" aria-label="Notificaciones" (click)="onNotif()">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2m6-6v-5a6 6 0 0 0-5-5.91V4a1 1 0 0 0-2 0v1.09A6 6 0 0 0 6 11v5l-2 2v1h16v-1z"/></svg>
+          @if (notifDotVisible) {
+            <span class="notif-dot"></span>
+          }
+        </button>
+      } @else {
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar" (click)="searchToggle.emit()">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 1 0-.7.7l.27.28v.79l5 4.99L20.49 19zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14"/></svg>
+        </button>
+      }
+      <button class="profile-btn">
+        <span class="avatar"></span>
+        <span>Perfil</span>
+      </button>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "futuro-ia-sistemas-salud-modernos",
+    "category": "Tecnología",
+    "theme": "c-tech",
+    "date": "12 de marzo, 2026",
+    "author": "Carlos Rodríguez",
+    "authorRole": "Editor de Tecnología",
+    "readTime": "5 min de lectura",
+    "title": "El futuro de la IA en los sistemas de salud modernos",
+    "description": "Explorando cómo el aprendizaje automático está revolucionando la precisión del diagnóstico y los...",
+    "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "El aprendizaje automático está transformando la medicina moderna al analizar enormes volúmenes de datos clínicos con una precisión sin precedentes. Algoritmos entrenados con millones de imágenes médicas ya detectan tumores, lesiones y anomalías en fases tempranas, a menudo antes que el ojo humano. Los hospitales que integran estas herramientas reportan diagnósticos más rápidos y tratamientos más personalizados, aunque los profesionales subrayan que la IA debe funcionar como apoyo al criterio médico y nunca como sustituto de la decisión clínica."
+  },
+  {
+    "slug": "renacimiento-artesania-tradicional-centros-urbanos",
+    "category": "Cultura",
+    "theme": "c-culture",
+    "date": "11 de marzo, 2026",
+    "author": "Elena Vance",
+    "authorRole": "Editora de Cultura",
+    "readTime": "8 min de lectura",
+    "title": "Renacimiento de la artesanía tradicional en centros urbanos",
+    "description": "Cómo los jóvenes artesanos combinan técnicas ancestrales con diseño moderno para crear...",
+    "image": "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "En pleno corazón de las grandes ciudades, una nueva generación de artesanos recupera oficios que parecían destinados al olvido. Cerámica, tejido, ebanistería y encuadernación reviven de la mano de jóvenes creadores que fusionan técnicas heredadas de generaciones anteriores con un lenguaje de diseño contemporáneo. Estos talleres urbanos no solo producen piezas únicas, sino que se convierten en espacios de comunidad y aprendizaje, impulsando una economía local basada en el valor de lo hecho a mano."
+  },
+  {
+    "slug": "auge-finanzas-descentralizadas-defi",
+    "category": "Negocios",
+    "theme": "c-biz",
+    "date": "10 de marzo, 2026",
+    "author": "Marcos Ferrer",
+    "authorRole": "Editor de Negocios",
+    "readTime": "4 min de lectura",
+    "title": "Cambios en el mercado: el auge de las finanzas descentralizadas",
+    "description": "Una mirada profunda a cómo los protocolos DeFi están desafiando los modelos bancarios...",
+    "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "Las finanzas descentralizadas, conocidas como DeFi, están cuestionando los cimientos del sistema bancario tradicional. A través de contratos inteligentes en cadenas de bloques, los usuarios pueden prestar, pedir prestado e invertir sin intermediarios, con total transparencia y disponibilidad permanente. Este ecosistema ha crecido de forma acelerada, atrayendo tanto a inversores particulares como institucionales, aunque los reguladores advierten sobre la volatilidad y la necesidad de marcos legales claros que protejan a los participantes."
+  },
+  {
+    "slug": "rover-marte-sistemas-agua-antiguos",
+    "category": "Ciencia",
+    "theme": "c-science",
+    "date": "09 de marzo, 2026",
+    "author": "Sofía Reyes",
+    "authorRole": "Editora de Ciencia",
+    "readTime": "6 min de lectura",
+    "title": "Nuevos datos del rover de Marte sugieren sistemas de agua antiguos",
+    "description": "Las últimas muestras geológicas del cráter Jezero proporcionan la evidencia más sólida hasta ahora d...",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "Las muestras geológicas recogidas por el rover en el cráter Jezero aportan la evidencia más contundente hasta la fecha sobre la existencia de antiguos sistemas de agua en Marte. Los sedimentos analizados revelan patrones compatibles con un delta fluvial que habría desembocado en un lago hace miles de millones de años. Estos hallazgos refuerzan la hipótesis de que el planeta rojo pudo albergar condiciones habitables y alimentan la expectativa de encontrar rastros de vida microbiana en futuras misiones de retorno de muestras."
+  }
+]

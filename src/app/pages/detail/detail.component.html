@@ -1,0 +1,154 @@
+<app-header variant="inner" active="noticias"></app-header>
+
+<main class="container detail-layout">
+
+  <!-- ===================== ARTÍCULO ===================== -->
+  <article class="article" id="article">
+
+    @if (loaded && !article) {
+      <!-- Estado no encontrado -->
+      <div class="article-notfound" id="articleNotFound">
+        <h1>Noticia no encontrada</h1>
+        <p>La noticia que buscas no existe o el enlace no es válido.</p>
+        <a class="btn btn-dark" routerLink="/catalogo">Volver al catálogo</a>
+      </div>
+    }
+
+    @if (article) {
+      <div class="article-content" id="articleContent">
+        <!-- Cabecera -->
+        <div class="article-meta">
+          <span class="article-cat" id="artCat">{{ article.category }}</span>
+          <span class="article-sep">|</span>
+          <span class="article-date" id="artDate">{{ article.date }}</span>
+        </div>
+
+        <h1 class="article-title" id="artTitle">{{ article.title }}</h1>
+
+        <div class="article-byline">
+          <div class="byline-author">
+            <span class="byline-avatar"></span>
+            <div>
+              <div class="byline-name" id="artAuthor">{{ article.author || 'Redacción NewsHub' }}</div>
+              <div class="byline-role" id="artAuthorRole">{{ article.authorRole || 'Redacción' }}</div>
+            </div>
+          </div>
+          <div class="byline-read">
+            <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8m.5-13H11v6l5.2 3.15.8-1.3-4.5-2.7z"/></svg>
+            <span id="artReadTime">{{ article.readTime || '5 min de lectura' }}</span>
+          </div>
+        </div>
+
+        <!-- Imagen principal -->
+        <figure class="article-figure">
+          <div class="article-hero-img" id="artHeroImg"
+               [style.background-image]="article.image ? 'url(' + article.image + ')' : null"
+               style="background-size:cover; background-position:center;">
+            <span class="article-img-fallback">
+              <svg viewBox="0 0 24 24" width="46" height="46"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3.01L14.5 12l4.5 6H5z"/></svg>
+              <small id="artImgAlt">Imagen principal: {{ article.title }}</small>
+            </span>
+          </div>
+          <figcaption class="article-caption" id="artCaption">{{ article.description }}</figcaption>
+        </figure>
+
+        <!-- Barra de acciones -->
+        <div class="article-actions">
+          <div class="action-buttons">
+            <button class="btn btn-outline" id="favBtn" [class.active]="favActive" (click)="toggleFav()">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 17.3 6.2 21l1.6-6.8L2.5 9.6l6.9-.6L12 2.6l2.6 6.4 6.9.6-5.3 4.6 1.6 6.8z"/></svg>
+              <span>{{ favActive ? 'En Favoritos' : 'Añadir a Favoritos' }}</span>
+            </button>
+            <button class="btn btn-dark" id="contactBtn" (click)="contactEditor()">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+              <span>Contactar Editor</span>
+            </button>
+          </div>
+          <div class="share-group">
+            <span class="share-label">Compartir:</span>
+            <button class="icon-btn share-btn" aria-label="Compartir enlace de ayuda" (click)="share()"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2m1 17h-2v-2h2zm1.07-7.75-.9.92A3.4 3.4 0 0 0 12 14h-2v-.5a4 4 0 0 1 1.17-2.83l1.24-1.26A2 2 0 1 0 8.7 8.5H6.7a4 4 0 1 1 7.37 2.75"/></svg></button>
+            <button class="icon-btn share-btn" aria-label="Compartir en Facebook" (click)="share()"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M13 22v-9h3l.5-3.5H13V7.3c0-1 .27-1.7 1.7-1.7H16.6V2.4A24 24 0 0 0 14.3 2.3c-2.4 0-4 1.45-4 4.1v2.6H7v3.5h3.3V22z"/></svg></button>
+            <button class="icon-btn share-btn" id="copyLinkBtn" aria-label="Copiar enlace" (click)="share()"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7h-4a5 5 0 0 0 0 10h4v-1.9h-4A3.1 3.1 0 0 1 3.9 12M8 13h8v-2H8zm9-6h-4v1.9h4a3.1 3.1 0 0 1 0 6.2h-4V17h4a5 5 0 0 0 0-10"/></svg></button>
+          </div>
+        </div>
+
+        <!-- Cuerpo del artículo -->
+        <div class="article-body" id="artBody">
+          @if (p1) { <p>{{ p1 }}</p> }
+          @if (p2) { <p>{{ p2 }}</p> }
+
+          <blockquote class="article-quote">
+            <p>"La información de calidad exige rigor, contexto y una mirada crítica sobre cada dato que llega a la redacción."</p>
+            <cite>— {{ article.author || 'Redacción' }}, {{ article.authorRole || 'NewsHub' }}</cite>
+          </blockquote>
+
+          @if (p3) { <p>{{ p3 }}</p> }
+
+          <div class="article-inline-block">
+            <div class="inline-chart">
+              <svg viewBox="0 0 24 24" width="40" height="40"><path fill="currentColor" d="M3.5 18.5 9 13l4 4 6.5-7.3L21 11l-8 9-4-4-3.5 3.5z"/></svg>
+              <small>Gráfico de tendencias</small>
+            </div>
+            <div class="inline-text">
+              <h3>Datos en tiempo real</h3>
+              <p>Los sistemas actuales procesan grandes volúmenes de información en segundos, identificando patrones y anomalías que antes tomaba semanas detectar.</p>
+            </div>
+          </div>
+
+          <p>{{ conclusion }}</p>
+        </div>
+      </div>
+
+      <!-- Comentarios -->
+      <section class="comments" id="commentsSection">
+        <div class="comments-head">
+          <h2 class="comments-title">Comentarios (24)</h2>
+          <a href="#" class="comments-rules">Ver normas de la comunidad</a>
+        </div>
+        <form class="comment-form" id="commentForm" (ngSubmit)="publishComment()">
+          <span class="comment-avatar"></span>
+          <div class="comment-field">
+            <textarea id="commentInput" placeholder="Escribe tu opinión sobre este artículo..." aria-label="Escribe tu comentario" name="comment" [(ngModel)]="comment"></textarea>
+            <div class="comment-foot">
+              <button type="submit" class="btn btn-dark">Publicar</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    }
+  </article>
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="detail-sidebar">
+    <div class="related">
+      <h3 class="side-title related-title">Artículos relacionados</h3>
+      <ul class="related-list" id="relatedList">
+        @for (n of related; track n.slug) {
+          <li class="related-item">
+            <a [routerLink]="['/detail']" [queryParams]="{ slug: n.slug }">
+              <span class="related-thumb" [style.background-image]="'url(' + n.image + ')'" style="background-size:cover; background-position:center;">
+                <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3.01L14.5 12l4.5 6H5z"/></svg>
+              </span>
+              <div class="related-info">
+                <div class="related-item-title">{{ n.title }}</div>
+                <div class="related-item-date">{{ n.date }}</div>
+              </div>
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="newsletter">
+      <h3>Mantente informado</h3>
+      <p>Recibe lo mejor de NewsHub directamente en tu correo cada mañana.</p>
+      <form (ngSubmit)="submitNewsletter()">
+        <input type="email" id="nlEmail" placeholder="tu@email.com" aria-label="Correo electrónico" name="nlEmail" [(ngModel)]="nlEmail" />
+        <button type="submit" class="btn btn-light block">Suscribirse</button>
+      </form>
+    </div>
+  </aside>
+
+</main>
+
+<app-footer variant="inner"></app-footer>

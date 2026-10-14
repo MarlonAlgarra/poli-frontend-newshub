@@ -1,0 +1,120 @@
+<app-header
+  variant="home"
+  active="inicio"
+  [showCultura]="true"
+  [search]="search"
+  (searchChange)="search = $event"
+  (notif)="onNotif()">
+</app-header>
+
+<main class="container">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero-image" style="background-image:url('https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80'); background-size:cover; background-position:center;">
+      <div class="placeholder">
+        <svg viewBox="0 0 24 24" width="42" height="42"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3.01L14.5 12l4.5 6H5z"/></svg>
+        <span>Imagen principal del artículo destacado</span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-meta">
+        <span class="badge">Noticias mundiales</span>
+        <span class="date">12 de marzo, 2026</span>
+      </div>
+      <h1 class="hero-title">Cumbre mundial alcanza acuerdo histórico sobre política climática</h1>
+      <p class="hero-excerpt">
+        Líderes de más de 150 naciones han firmado un tratado histórico con el objetivo
+        de acelerar la transición a fuentes de energía...
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-dark">Leer historia completa</button>
+        <button class="icon-btn bookmark" [class.saved]="bookmarkSaved" aria-label="Guardar" (click)="toggleBookmark()">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M17 3H7a2 2 0 0 0-2 2v16l7-3 7 3V5a2 2 0 0 0-2-2"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTENIDO PRINCIPAL ===================== -->
+  <div class="content-grid">
+
+    <!-- Columna: historias -->
+    <section class="stories">
+      <div class="section-head">
+        <h2>Historias de actualidad</h2>
+        <a href="#" class="see-all">Ver todo</a>
+      </div>
+
+      <div class="cards" id="cardsContainer">
+        @for (s of visibleStories; track s.slug) {
+          <article class="card">
+            <div class="card-img {{ s.theme }}" [style.background-image]="'url(' + s.image + ')'" style="background-size:cover; background-position:center;">
+              <span class="card-img-fallback">
+                <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2M8.5 13.5l2.5 3.01L14.5 12l4.5 6H5z"/></svg>
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <span class="card-cat">{{ s.category }}</span>
+                <span class="card-read">{{ s.readTime }}</span>
+              </div>
+              <h3 class="card-title"><a [routerLink]="['/detail']" [queryParams]="{ slug: s.slug }">{{ s.title }}</a></h3>
+              <p class="card-desc">{{ s.description }}</p>
+              <div class="card-foot">
+                <a [routerLink]="['/detail']" [queryParams]="{ slug: s.slug }" class="read-more">Leer más</a>
+                <div class="card-actions">
+                  <button class="icon-btn like" [class.liked]="liked.has(s.slug)" aria-label="Me gusta" (click)="toggleLike(s)">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 21s-6.7-4.35-9.33-8.24C.86 10.06 1.6 6.5 4.6 5.3c1.9-.77 4 .07 5.4 1.86C11.4 5.37 13.5 4.53 15.4 5.3c3 1.2 3.74 4.76 1.93 7.46C18.7 16.65 12 21 12 21"/></svg>
+                  </button>
+                  <button class="icon-btn share" aria-label="Compartir" (click)="share()">
+                    <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18 16a3 3 0 0 0-2.24 1.02l-6.88-3.44a3 3 0 0 0 0-1.16l6.88-3.44a3 3 0 1 0-.82-2.06l-6.88 3.44a3 3 0 1 0 0 4.28l6.88 3.44A3 3 0 1 0 18 16"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- Columna: sidebar -->
+    <aside class="sidebar">
+      <div class="editor-pick">
+        <h3 class="side-title">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2a5 5 0 0 0-2 9.58V16l2 2 2-2v-4.42A5 5 0 0 0 12 2m-3 18v2h6v-2z"/></svg>
+          Elección del editor
+        </h3>
+        <ul class="pick-list" id="pickList">
+          @for (p of picks; track p.title) {
+            <li class="pick-item">
+              <span class="pick-thumb {{ p.thumb }}"></span>
+              <div>
+                <div class="pick-cat">{{ p.category }}</div>
+                <div class="pick-title">{{ p.title }}</div>
+                <div class="pick-author">{{ p.author }}</div>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+
+      <div class="newsletter">
+        <div class="nl-icon">
+          <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M2.01 21 23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </div>
+        <h3>Únete a nuestro boletín</h3>
+        <p>Recibe las últimas historias y noticias de última hora directamente en tu bandeja de entrada cada mañana.</p>
+        <form (ngSubmit)="submitNewsletter()">
+          <input type="email" id="nlEmail" placeholder="Ingresa tu correo electrónico" aria-label="Correo electrónico" name="nlEmail" [(ngModel)]="nlEmail" />
+          <button type="submit" class="btn btn-light block">Suscríbete ahora</button>
+        </form>
+        <small>Sin spam, solo periodismo de calidad. Cancela tu suscripción en cualquier momento.</small>
+      </div>
+    </aside>
+
+  </div>
+</main>
+
+<app-footer variant="home"></app-footer>

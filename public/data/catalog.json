@@ -1,0 +1,80 @@
+[
+  {
+    "slug": "innovaciones-energia-solar-areas-urbanas",
+    "category": "Tecnología",
+    "date": "15 de mayo, 2026",
+    "order": 20260515,
+    "title": "Innovaciones en Energía Solar para Áreas Urbanas",
+    "author": "Laura Giménez",
+    "authorRole": "Editora de Medio Ambiente",
+    "readTime": "6 min de lectura",
+    "description": "Nuevos paneles translúcidos permiten que los rascacielos generen su propia electricidad sin sacrific…",
+    "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "Una nueva generación de paneles fotovoltaicos translúcidos está transformando la manera en que las ciudades producen energía. Integrados directamente en las fachadas y ventanas de los rascacielos, estos paneles capturan la luz solar sin bloquear la visibilidad, permitiendo que los edificios generen buena parte de su propio consumo eléctrico. Los expertos estiman que la adopción masiva de esta tecnología podría reducir de forma significativa la huella de carbono de los grandes centros urbanos en la próxima década."
+  },
+  {
+    "slug": "impacto-teletrabajo-economia-local",
+    "category": "Economía",
+    "date": "12 de mayo, 2026",
+    "order": 20260512,
+    "title": "El Impacto del Teletrabajo en la Economía Local",
+    "author": "Marcos Ferrer",
+    "authorRole": "Editor de Economía",
+    "readTime": "5 min de lectura",
+    "description": "Pequeñas ciudades están experimentando un renacimiento comercial gracias a la migración de…",
+    "image": "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "El auge del trabajo remoto ha impulsado un cambio demográfico que beneficia a las pequeñas ciudades. Profesionales que antes vivían en grandes urbes se han trasladado a poblaciones más asequibles, dinamizando el comercio local, la restauración y el mercado inmobiliario. Comercios que llevaban años en declive reportan ahora incrementos notables en sus ventas, mientras los ayuntamientos invierten en conectividad y espacios de coworking para atraer a más nuevos residentes."
+  },
+  {
+    "slug": "avances-educacion-personalizada-ia",
+    "category": "Educación",
+    "date": "10 de mayo, 2026",
+    "order": 20260510,
+    "title": "Avances en Educación Personalizada mediante IA",
+    "author": "Sofía Reyes",
+    "authorRole": "Editora de Educación",
+    "readTime": "7 min de lectura",
+    "description": "Sistemas inteligentes adaptan el currículo en tiempo real según las fortalezas y debilidades de cada…",
+    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "Las plataformas educativas basadas en inteligencia artificial están redefiniendo el aprendizaje en las aulas. Estos sistemas analizan el progreso de cada estudiante en tiempo real y ajustan automáticamente la dificultad y el ritmo de las lecciones según sus fortalezas y debilidades. Los primeros centros que han implementado la tecnología reportan mejoras en la retención de conocimientos y una mayor motivación del alumnado, aunque los especialistas insisten en que la figura del docente sigue siendo insustituible."
+  },
+  {
+    "slug": "nuevas-rutas-turisticas-sudeste-asiatico",
+    "category": "Viajes",
+    "date": "08 de mayo, 2026",
+    "order": 20260508,
+    "title": "Nuevas Rutas Turísticas en el Sudeste Asiático",
+    "author": "Julian Mars",
+    "authorRole": "Editor de Viajes",
+    "readTime": "4 min de lectura",
+    "description": "Descubriendo destinos emergentes que apuestan por la sostenibilidad y el respeto a la cultura local.",
+    "image": "https://images.unsplash.com/photo-1528181304800-259b08848526?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "El Sudeste Asiático abre nuevas rutas que se alejan del turismo masivo para apostar por experiencias sostenibles. Estos destinos emergentes priorizan el respeto a las comunidades locales, la conservación de los ecosistemas y el comercio justo. Pequeños operadores ofrecen alojamientos gestionados por familias del lugar y actividades que reinvierten sus beneficios en la propia región, marcando una tendencia hacia un viajero más consciente y comprometido con su impacto."
+  },
+  {
+    "slug": "evolucion-comercio-electronico-2026",
+    "category": "Negocios",
+    "date": "05 de mayo, 2026",
+    "order": 20260505,
+    "title": "La Evolución del Comercio Electrónico en 2026",
+    "author": "Elena Vance",
+    "authorRole": "Editora de Negocios",
+    "readTime": "5 min de lectura",
+    "description": "La realidad aumentada se convierte en el estándar para las pruebas de productos desde el hogar.",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "La realidad aumentada se ha consolidado como el nuevo estándar del comercio electrónico. Los consumidores ya pueden visualizar muebles en su salón, probarse ropa virtualmente o comprobar cómo luce un producto antes de comprarlo, todo desde su móvil. Esta tecnología ha reducido drásticamente las tasas de devolución y ha aumentado la confianza del comprador, obligando a las marcas a repensar sus catálogos digitales y a integrar experiencias inmersivas en cada punto de venta."
+  },
+  {
+    "slug": "tendencias-diseno-industrial-sostenible",
+    "category": "Diseño",
+    "date": "01 de mayo, 2026",
+    "order": 20260501,
+    "title": "Tendencias en Diseño Industrial Sostenible",
+    "author": "Diego Salas",
+    "authorRole": "Editor de Diseño",
+    "readTime": "4 min de lectura",
+    "description": "Cómo el uso de bioplásticos está transformando la fabricación de dispositivos tecnológicos.",
+    "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+    "desarrollo": "El diseño industrial vive una revolución impulsada por los materiales sostenibles. Los bioplásticos derivados de fuentes renovables están sustituyendo a los polímeros tradicionales en la fabricación de dispositivos tecnológicos, reduciendo la dependencia del petróleo y facilitando el reciclaje al final de la vida útil del producto. Fabricantes de todo el mundo rediseñan sus líneas para incorporar estos materiales, combinando estética, durabilidad y responsabilidad ambiental en un mismo objeto."
+  }
+]
